@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="tabla_principal">
+        <table class="table text-center text-light">
+          <thead>
+            <tr>
+              <th scope="col">Nombre</th>
+              <th scope="col">Apellidos</th>
+              <th scope="col">Super Heroe</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let dato of respuesta">
+              <td scope="row">{{ dato.nombre }}</td>
+              <td scope="row">{{ dato.apellidos }}</td>
+              <td scope="row">{{ dato.nombre_superheroe }}</td>
+              <td scope="row">
+                <div class="row text-center g-0">
+                  <div class="col-12 col-md-6">
+                    <button
+                      class="btn btn-primary"
+                      [routerLink]="['/', 'editar', dato._id]"
+                    >
+                      <i class="uil uil-edit"></i>
+                    </button>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <button
+                      class="btn btn-danger"
+                      (click)="eliminarPersonaje(dato._id)"
+                    >
+                      <i class="uil uil-trash"></i>
+                    </button>
+                  </div>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="contenedor_boton">
+          <button
+            class="btn btn-success"
+            [routerLink]="['/crear']"
+            routerLinkActive="router-link-active"
+          >
+            Añadir Personaje
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

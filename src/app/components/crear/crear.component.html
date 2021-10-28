@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="contenedor_formulario text-white">
+      <div class="contenedor_formulario-editar">
+        <h4>Crear Personaje</h4>
+        <form [formGroup]="form" (submit)="enviarData()">
+          <div class="form-group">
+            <label for="idnombre">Nombre</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white shadow-none"
+              id="idnombre"
+              formControlName="nombre"
+            />
+          </div>
+          <div class="form-group">
+            <label for="idapellidos">Apellidos</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white shadow-none"
+              id="idapellidos"
+              formControlName="apellidos"
+            />
+          </div>
+          <div class="form-group">
+            <label for="idpelicula">Personaje</label>
+            <input
+              type="text"
+              class="form-control bg-dark text-white shadow-none"
+              id="idpelicula"
+              formControlName="nombre_superheroe"
+            />
+          </div>
+          <div class="form-group">
+            <label for="iddescripcion">Descripcion</label>
+            <textarea
+              class="form-control bg-dark text-white shadow-none"
+              id="iddescripcion"
+              rows="5"
+              formControlName="descripcion"
+            ></textarea>
+          </div>
+          <div class="row text-center">
+            <div class="col-6 g-2">
+              <div class="form-group">
+                <button class="btn btn-outline-secondary">Añadir</button>
+              </div>
+            </div>
+            <div class="col-6 g-2">
+              <div class="form-group">
+                <button class="btn btn-outline-danger" [routerLink]="['/']">
+                  Volver
+                </button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>

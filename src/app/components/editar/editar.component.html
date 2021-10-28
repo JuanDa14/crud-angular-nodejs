@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <div class="contenedor">
+      <div class="contenedor-card">
+        <div class="card text-white bg-dark border-secondary">
+          <div class="card-header">
+            {{ respuesta.nombre_superheroe }}
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">
+              {{ respuesta.nombre }} {{ respuesta.apellidos }}
+            </h5>
+            <p class="card-text">
+              {{ respuesta.descripcion }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="contenedor_formulario">
+        <div class="contenedor_formulario-editar">
+          <h4>Editar Personaje</h4>
+          <form [formGroup]="form" (submit)="editarPersonaje(respuesta._id)">
+            <div class="form-group">
+              <label for="idnombre">Nombre</label>
+              <input
+                type="text"
+                class="form-control bg-dark text-white shadow-none"
+                id="idnombre"
+                value="{{ respuesta.nombre }}"
+                formControlName="nombre"
+              />
+            </div>
+            <div class="form-group">
+              <label for="idapellidos">Apellidos</label>
+              <input
+                type="text"
+                class="form-control bg-dark text-white shadow-none"
+                id="idapellidos"
+                value="{{ respuesta.apellidos }}"
+                formControlName="apellidos"
+              />
+            </div>
+            <div class="form-group">
+              <label for="idpelicula">Personaje</label>
+              <input
+                type="text"
+                class="form-control bg-dark text-white shadow-none"
+                id="idpelicula"
+                value="{{ respuesta.nombre_superheroe }}"
+                formControlName="nombrepelicula"
+              />
+            </div>
+            <div class="form-group">
+              <label for="iddescripcion">Descripcion</label>
+              <textarea
+                class="form-control bg-dark text-white shadow-none"
+                id="iddescripcion"
+                rows="5"
+                value="{{ respuesta.descripcion }}"
+                formControlName="descripcion"
+              ></textarea>
+            </div>
+            <div class="row text-center">
+              <div class="col-6 g-2">
+                <div class="form-group">
+                  <button class="btn btn-outline-secondary">Editar</button>
+                </div>
+              </div>
+              <div class="col-6 g-2">
+                <div class="form-group">
+                  <button
+                    class="btn btn-outline-danger"
+                    [routerLink]="['/']"
+                    routerLinkActive="router-link-active"
+                  >
+                    Volver
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
